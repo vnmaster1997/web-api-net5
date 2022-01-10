@@ -64,3 +64,4 @@ G:\Projects\Learn\C#\RestfulAPI\RestfulAPI\bin\Debug\netcoreapp3.1\runtimes\win-
 G:\Projects\Learn\C#\RestfulAPI\RestfulAPI\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 G:\Projects\Learn\C#\RestfulAPI\RestfulAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 G:\Projects\Learn\C#\RestfulAPI\RestfulAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+G:\Projects\Learn\C#\RestfulAPI\RestfulAPI\obj\Debug\netcoreapp3.1\RestfulAPI.csproj.AssemblyReference.cache
