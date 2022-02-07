@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RestfulAPI.Data;
 using RestfulAPI.Models;
+using RestfulAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,10 @@ namespace RestfulAPI
             services.AddDbContext<MyDbContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
-
             });
+
+            //services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryRepository, CategoryInMemory>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
