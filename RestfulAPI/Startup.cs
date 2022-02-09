@@ -39,6 +39,7 @@ namespace RestfulAPI
 
             //services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryRepository, CategoryInMemory>();
+            services.AddScoped<IMerchandiseRepository, MerchandiseRepository>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestfulAPI.Data;
 using RestfulAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,12 @@ namespace RestfulAPI.Controllers
     public class MerchandiseController : ControllerBase
     {
         public static List<Models.Merchandise> merchandises = new List<Models.Merchandise>();
+        private readonly MyDbContext _context;
+
+        public MerchandiseController(MyDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public IActionResult GetAll()
@@ -40,13 +47,14 @@ namespace RestfulAPI.Controllers
         [HttpPost]
         public IActionResult Create(MerchandiseVM merchandiseVM)
         {
-            var merchandise = new Merchandise()
+            var merchandise = new Data.Merchandise()
             {
                 code = Guid.NewGuid(),
                 name = merchandiseVM.name,
                 price = merchandiseVM.price
             };
-            merchandises.Add(merchandise);
+            _context.Add(merchandise);
+            _context.SaveChanges();
 
             return Ok(new
             {
@@ -56,7 +64,7 @@ namespace RestfulAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit(string id, Merchandise merchandiseUpdate)
+        public IActionResult Edit(string id, Models.Merchandise merchandiseUpdate)
         {
             try {
                 // LINE [Object] Query
