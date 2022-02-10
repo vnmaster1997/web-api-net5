@@ -69,7 +69,7 @@ namespace RestfulAPI.Controllers
             try {
                 // LINE [Object] Query
 
-                var mer = merchandises.SingleOrDefault(m => m.code == Guid.Parse(id));
+                var mer = merchandises.SingleOrDefault(m => m.code == System.Guid.Parse(id));
                 if(mer == null)
                 {
                     return NotFound();
@@ -91,7 +91,7 @@ namespace RestfulAPI.Controllers
         {
             try
             {
-                var mer = merchandises.SingleOrDefault(m => m.code == Guid.Parse(id));
+                var mer = merchandises.SingleOrDefault(m => m.code == System.Guid.Parse(id));
                 if (mer == null)
                 {
                     return NotFound();

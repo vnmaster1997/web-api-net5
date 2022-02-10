@@ -8,6 +8,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace RestfulAPI.Controllers
@@ -42,7 +43,7 @@ namespace RestfulAPI.Controllers
             return Ok(new ApiResponse { Success = true, Message = "Authenticate Success!", Data = GenerateToken(user) });
         }
 
-        private string GenerateToken(User user)
+        private TokenModel GenerateToken(User user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
@@ -58,7 +59,7 @@ namespace RestfulAPI.Controllers
 
                     // roles
 
-                    new Claim("TokenId", Guid.NewGuid().ToString())
+                    new Claim("TokenId", System.Guid.NewGuid().ToString())
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKeyBytes), SecurityAlgorithms.HmacSha512Signature)
@@ -66,7 +67,23 @@ namespace RestfulAPI.Controllers
 
             var token = jwtTokenHandler.CreateToken(tokenDescription);
 
-            return jwtTokenHandler.WriteToken(token);
+            var accessToken = jwtTokenHandler.WriteToken(token);
+
+            return new TokenModel
+            {
+                AccessToken = accessToken,
+                RefreshToken = GenerateRefreshToken(),
+            };
+        }
+
+        private string GenerateRefreshToken()
+        {
+            var random = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(random);
+                return Convert.ToBase64String(random);
+            }
         }
     }
 }
