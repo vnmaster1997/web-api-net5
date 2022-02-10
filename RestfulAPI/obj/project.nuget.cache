@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "QW0bjJTGMwPIRj0RXfg6eDgSCJLzb4d+dzrNd12YpeGvSx1CaL6Q8GQkO/4Zw1HMQvFzbBCG9okX7LHn9j4Fbw==",
+  "dgSpecHash": "2ETI/b3HMbhmHnxNkInW9i69daFFMBBAE5/v+ktH4S8NW9k+s+snhGIuixfansB1b8ZGw5t44XSYnmJsGd7oDA==",
   "success": true,
   "projectFilePath": "G:\\Projects\\Learn\\C#\\RestfulAPI\\RestfulAPI\\RestfulAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.22\\microsoft.aspnetcore.authentication.jwtbearer.3.1.22.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
